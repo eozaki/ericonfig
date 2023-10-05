@@ -63,10 +63,11 @@ function configVim {
 	# Configuring vim plugins
 	rm -rf .vim
 	mkdir .vim
+	rm -rf ~/.vim/bundle/Vundle.vim
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	ln -s ~/.vim ~/.config/nvim
 	rm -rf ~/.config/nvim/init.vim
-	ln -s ~/.vimrc ~/.config/nvim/init.vim
+	ln -s ~/.vimrc ~/.config/nvim/init.vim > /dev/null
 	nvim +VundleInstall
 }
 
@@ -96,21 +97,35 @@ function linuxPreparation {
 	configTmux
 }
 
+function installMacBrew {
+	sudo curl -fsSL "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh" | bash
+}
+
+function installMacXCode {
+	xcode-select --install
+}
+
+function installMacDeps {
+	brew install nvim tmux tmuxinator xclip fish git vim meld cowsay fortune the_silver_searcher gnupg2
+}
+
 function macOsPreparation {
 	echo "Starting macOS tools instalation:"
 
 	createRsaKey
 
+	installMacXCode
+	installMacDeps
+
 	configGit
+
+	installMacNvim
 
 	installAsdf
 
-	configShell
-	configShellTheme
+	configVim
 
-	# configVim
-
-	# configTmux
+	configTmux
 }
 
 platform='unknown'
