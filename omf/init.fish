@@ -34,3 +34,4 @@ set -g EDITOR nvim
 
 export EDITOR=nvim
 fortune | cowsay -f tux
+

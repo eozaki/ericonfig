@@ -1,5 +1,3 @@
-package python
-package rvm
-theme agnoster
+package https://github.com/jhillyerd/plugin-git
+package https://github.com/kobanyan/bullet-train-fish-theme
 theme default
-theme https://github.com/kobanyan/bullet-train-fish-theme
