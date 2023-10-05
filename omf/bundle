@@ -1,0 +1,5 @@
+package python
+package rvm
+theme agnoster
+theme default
+theme https://github.com/kobanyan/bullet-train-fish-theme

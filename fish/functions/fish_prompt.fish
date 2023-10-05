@@ -1,0 +1,1 @@
+/home/erick/.local/share/omf/themes/bullet-train-fish-theme/fish_prompt.fish

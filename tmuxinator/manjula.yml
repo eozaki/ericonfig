@@ -1,0 +1,13 @@
+# ~/.tmuxinator/manjula.yml
+
+name: manjula
+root: ~/workspace/manjula
+
+windows:
+  - editor:
+      layout: f98d,230x59,0,0[230x40,0,0,0,230x18,0,41,4]
+      panes:
+        - nvim
+        - 
+  - server: cd .; mix phoenix.server
+  - console: cd .; iex -S mix

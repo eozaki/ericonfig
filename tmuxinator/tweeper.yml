@@ -1,0 +1,13 @@
+# ~/.tmuxinator/tweeper.yml
+
+name: tweeper
+root: ~/workspace/tweeper
+
+windows:
+  - editor:
+      layout: f98d,230x59,0,0[230x40,0,0,0,230x18,0,41,4]
+      panes:
+        - nvim
+        -
+  - server: cd .; rails s
+  - logs: cd .; tail -f log/development.log
