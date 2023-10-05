@@ -1,0 +1,5 @@
+[core]
+	editor = vim
+[alias]
+	ci = commit -v
+	co = checkout
