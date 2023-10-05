@@ -115,7 +115,7 @@ let s:palette.tabline.middle = s:palette.normal.middle
 " Avoids showing the current mode below status line
 set noshowmode
 
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
