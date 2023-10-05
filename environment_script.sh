@@ -77,6 +77,8 @@ function configTmux {
 }
 
 function linuxPreparation {
+	createRsaKey
+
 	echo "Starting linux tools instalation:"
 	linuxDeps
 	linuxFonts
@@ -122,4 +124,3 @@ elif [[  "$unamestr" == 'Darwin' ]]; then
 else
 	echo "QUE MERDA É ESSA????"
 fi
-
