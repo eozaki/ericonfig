@@ -3,7 +3,7 @@
 function linuxPreparation {
 # 	# Getting started with updates
 # 	sudo apt update && sudo apt full-upgrade -y
-# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune -y
+# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf -y
 
  	# Copying font files and making them available
  	mkdir ~/.fonts
@@ -12,8 +12,9 @@ function linuxPreparation {
  	fc-cache -f -v
 	
 	# Setting terminal theme
-	gsettings set io.elementary.terminal.settings font 'Monaco for Powerline 12'
-	gsettings set io.elementary.terminal.settings theme 'custom'
+ 	# Set correct font
+ 	dconf write /io/elementary/terminal/settings/font "'Monaco for Powerline 13'"
+	dconf write /io/elementary/terminal/settings/theme "'custom'"
  
  	# Configuring git
         rm -rf ~/.gitconfig
@@ -38,16 +39,16 @@ function linuxPreparation {
 	# Install git plugin for omf
 	omf install https://github.com/jhillyerd/plugin-git
 
-# 	# Using vim config file and installing needed xclip (clipboard manager)
-# 	sudo apt install xclip -y
-# 	rm -rf ~/.vimrc
-# 	ln -s "$PWD"/.vimrc ~/.vimrc
-# 
-# 	# Installing neovim
-# 	sudo add-apt-repository ppa:neovim-ppa/unstable -y
-# 	sudo apt update
-# 	sudo apt install neovim -y
-# 
+ 	# Using vim config file and installing needed xclip (clipboard manager)
+ 	sudo apt install xclip -y
+ 	rm -rf ~/.vimrc
+ 	ln -s "$PWD"/.vimrc ~/.vimrc
+ 
+#  	# Installing neovim
+#  	sudo add-apt-repository ppa:neovim-ppa/unstable -y
+#  	sudo apt update
+#  	sudo apt install neovim -y
+#  
 # 	# Configuring vim plugins
 # 	mkdir .vim
 # 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -78,8 +79,6 @@ function linuxPreparation {
 # 	rvm install ruby
 # 	gem install tmuxinator
 # 
-# 	# Set correct font
-# 	dconf write /io/elementary/terminal/settings/font "'Monaco for Powerline 13'"
 }
 
 platform='unknown'
