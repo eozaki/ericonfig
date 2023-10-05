@@ -3,7 +3,7 @@
 function linuxPreparation {
 # 	# Getting started with updates
 # 	sudo apt update && sudo apt full-upgrade -y
-# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf neovim -y
+# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf neovim silversearcher-ag gnupg2 -y
 
 #  	# Copying font files and making them available
 #  	mkdir ~/.fonts
@@ -39,43 +39,26 @@ function linuxPreparation {
 # 	# Install git plugin for omf
 # 	omf install https://github.com/jhillyerd/plugin-git
 # 
- 	# Using vim config file and installing needed xclip (clipboard manager)
- 	sudo apt install xclip -y
- 	rm ~/.vimrc
- 	ln -s "$PWD"/vimrc ~/.vimrc
- 
- 	# Configuring vim plugins
- 	rm -rf .vim
- 	mkdir .vim
- 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
- 	ln -s ~/.vim ~/.config/nvim
-	rm -rf ~/.config/nvim/init.vim
- 	ln -s ~/.vimrc ~/.config/nvim/init.vim
-	nvim +VundleInstall
- 
-# 	# installing tmux
-# 	sudo apt install tmux
-# 
-# 	# configuring tmux
-# 	ln -s "$PWD"/tmux.conf ~/.tmux.conf
-# 
-# 	# configuring tmuxinator
-# 	ln -s "$PWD"/tmuxinator/ ~/.tmuxinator
-# 	ln -s "$PWD"/tmuxinator.zsh ~/.tmuxinator.zsh
-# 
-# 	# installing linuxbrew
-# 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-# 
-# 	# Installing asdf manager
-# 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.0
-# 
-# 	# Installing rvm
-# 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-# 	\curl -sSL https://get.rvm.io | bash -s stable
-# 
-# 	# Installing latest ruby
-# 	rvm install ruby
-# 	gem install tmuxinator
+#  	# Using vim config file and installing needed xclip (clipboard manager)
+#  	sudo apt install xclip -y
+#  	rm ~/.vimrc
+#  	ln -s "$PWD"/vimrc ~/.vimrc
+#  
+#  	# Configuring vim plugins
+#  	rm -rf .vim
+#  	mkdir .vim
+#  	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#  	ln -s ~/.vim ~/.config/nvim
+# 	rm -rf ~/.config/nvim/init.vim
+#  	ln -s ~/.vimrc ~/.config/nvim/init.vim
+# 	nvim +VundleInstall
+#  
+  	# installing tmux
+  	sudo apt install tmux tmuxinator
+#  
+#  	# configuring tmux
+#   rm -rf ~/.tmux.conf
+#  	ln -s "$PWD"/tmux.conf ~/.tmux.conf
 # 
 }
 
