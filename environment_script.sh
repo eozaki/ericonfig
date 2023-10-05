@@ -1,5 +1,10 @@
 #! /bin/bash
 
+function createRsaKey {
+	[ ! -e ~/.ssh/id_rsa.pub ] && echo "Criando chave ssh"
+	[ ! -e ~/.ssh/id_rsa.pub ] && ssh-keygen
+}
+
 function linuxDeps {
 	# Getting started with updates
 	sudo apt update && sudo apt full-upgrade -y
@@ -91,6 +96,8 @@ function linuxPreparation {
 
 function macOsPreparation {
 	echo "Starting macOS tools instalation:"
+
+	createRsaKey
 
 	configGit
 
