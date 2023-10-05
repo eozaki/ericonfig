@@ -1,29 +1,41 @@
 #! /bin/bash
 
-function linuxPreparation {
+function linuxDeps {
 	# Getting started with updates
 	sudo apt update && sudo apt full-upgrade -y
-	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf neovim silversearcher-ag gnupg2 libreadline6-dev -y
+	sudo apt-get install \
+		tmux tmuxinator xclip fish git vim meld software-properties-common \
+		ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev \
+		curl cowsay fortune dconf neovim silversearcher-ag gnupg2 libreadline6-dev -y
+}
 
+function linuxFonts {
 	# Copying font files and making them available
 	mkdir ~/.fonts
 	cp -r "$PWD"/*.ttf ~/.fonts
 	cp -r "$PWD"/*.otf ~/.fonts
 	fc-cache -f -v
+}
 
+function linuxElementaryTerminal {
 	# Setting terminal theme
 	# Set correct font
 	dconf write /io/elementary/terminal/settings/font "'Monaco for Powerline 13'"
 	dconf write /io/elementary/terminal/settings/theme "'custom'"
-
+}
+function configGit {
 	# Configuring git
 	rm -rf ~/.gitconfig
 	ln -s "$PWD"/.gitconfig ~/.gitconfig
+}
 
+function installAsdf {
 	# Install asdf
 	rm -rf ~/.asdf
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+}
 
+function configShell {
 	# Making fish the default shell
 	chsh -s /usr/bin/fish
 
@@ -32,15 +44,18 @@ function linuxPreparation {
 	ln -s "$PWD"/fish ~/.config/fish
 	rm -rf ~/.config/omf
 	ln -s "$PWD"/omf ~/.config/omf
+}
 
+function configShellTheme {
 	# Install bullet-train theme
 	omf install https://github.com/kobanyan/bullet-train-fish-theme
 
 	# Install git plugin for omf
 	omf install https://github.com/jhillyerd/plugin-git
+}
 
-	# Using vim config file and installing needed xclip (clipboard manager)
-	sudo apt install xclip -y
+function configVim {
+	# Using vim config file
 	rm ~/.vimrc
 	ln -s "$PWD"/vimrc ~/.vimrc
 
@@ -52,13 +67,29 @@ function linuxPreparation {
 	rm -rf ~/.config/nvim/init.vim
 	ln -s ~/.vimrc ~/.config/nvim/init.vim
 	nvim +VundleInstall
+}
 
-	# installing tmux
-	sudo apt install tmux tmuxinator
-
+function configTmux {
 	# configuring tmux
 	rm -rf ~/.tmux.conf
 	ln -s "$PWD"/tmux.conf ~/.tmux.conf
+}
+
+function linuxPreparation {
+	linuxDeps
+	linuxFonts
+	linuxElementaryTerminal
+
+	configGit
+
+	installAsdf
+
+	configShell
+	configShellTheme
+
+	configVim
+	
+	configTmux
 }
 
 platform='unknown'
