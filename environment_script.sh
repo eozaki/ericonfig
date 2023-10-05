@@ -47,11 +47,7 @@ function configShell {
 }
 
 function configShellTheme {
-	# Install bullet-train theme
-	omf install https://github.com/kobanyan/bullet-train-fish-theme
-
-	# Install git plugin for omf
-	omf install https://github.com/jhillyerd/plugin-git
+	fish omf_config.fish > /dev/null
 }
 
 function configVim {
@@ -76,6 +72,7 @@ function configTmux {
 }
 
 function linuxPreparation {
+	echo "Starting linux tools instalation:"
 	linuxDeps
 	linuxFonts
 	linuxElementaryTerminal
@@ -88,8 +85,23 @@ function linuxPreparation {
 	configShellTheme
 
 	configVim
-	
+
 	configTmux
+}
+
+function macOsPreparation {
+	echo "Starting macOS tools instalation:"
+
+	configGit
+
+	installAsdf
+
+	configShell
+	configShellTheme
+
+	# configVim
+
+	# configTmux
 }
 
 platform='unknown'
@@ -97,10 +109,9 @@ platform='unknown'
 unamestr=$(uname)
 
 if [[ "$unamestr" == 'Linux' ]]; then
-	echo "Starting linux tools instalation:"
 	linuxPreparation
 elif [[  "$unamestr" == 'Darwin' ]]; then
-	echo "AQUI É MAC"
+	macOsPreparation
 else
 	echo "QUE MERDA É ESSA????"
 fi
