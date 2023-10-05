@@ -94,7 +94,7 @@ set splitright
 set nu
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-highlight OverLength ctermbg=darkred ctermfg=white guibg=base0
+highlight OverLength ctermbg=darkred ctermfg=white guibg=black
 match OverLength /\%101v.\+/
 
 hi Search cterm=bold ctermfg=white ctermbg=black

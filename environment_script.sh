@@ -3,7 +3,7 @@
 function linuxPreparation {
 # 	# Getting started with updates
 # 	sudo apt update && sudo apt full-upgrade -y
-# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf neovim silversearcher-ag gnupg2 -y
+# 	sudo apt-get install fish git vim meld software-properties-common ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev curl cowsay fortune dconf neovim silversearcher-ag gnupg2 libreadline6-dev -y
 
 #  	# Copying font files and making them available
 #  	mkdir ~/.fonts
