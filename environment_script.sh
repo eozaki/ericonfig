@@ -1,5 +1,23 @@
 #! /bin/bash
 
+function loadingAnimation {
+	pid=$! # Process Id of the previous running command
+
+	spin='-\|/'
+
+	i=0
+	while kill -0 $pid 2>/dev/null
+	do
+		i=$(( (i+1) %4 ))
+		echo -ne "\r${spin:$i:1} $1% of the work is done, we will be over in just a moment...\r"
+		sleep .1
+	done
+}
+
+function finishMessage {
+	printf "ALL DONE FOLKS!!!"
+}
+
 function createRsaKey {
 	[ ! -e ~/.ssh/id_rsa.pub ] && echo "Criando chave ssh"
 	[ ! -e ~/.ssh/id_rsa.pub ] && ssh-keygen
@@ -52,7 +70,7 @@ function configShell {
 }
 
 function configShellTheme {
-	fish omf_config.fish > /dev/null
+	fish omf_config.fish
 }
 
 function configVim {
@@ -67,7 +85,7 @@ function configVim {
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	ln -s ~/.vim ~/.config/nvim
 	rm -rf ~/.config/nvim/init.vim
-	ln -s ~/.vimrc ~/.config/nvim/init.vim > /dev/null
+	ln -s ~/.vimrc ~/.config/nvim/init.vim
 	nvim +VundleInstall
 }
 
@@ -80,22 +98,24 @@ function configTmux {
 
 function linuxPreparation {
 	echo "Starting linux tools instalation:"
-	createRsaKey
+	
+	createRsaKey > /dev/null & loadingAnimation 10
 
-	linuxDeps
-	linuxFonts
-	linuxElementaryTerminal
+	linuxDeps > /dev/null & loadingAnimation 20
+	linuxFonts > /dev/null & loadingAnimation 30
+	linuxElementaryTerminal > /dev/null & loadingAnimation 40
 
-	configGit
+	configGit > /dev/null & loadingAnimation 50
 
-	installAsdf
+	installAsdf > /dev/null & loadingAnimation 60
 
-	configShell
-	configShellTheme
+	configShell > /dev/null & loadingAnimation 70
+	configShellTheme > /dev/null & loadingAnimation 80
 
+	# Vim step cant have status animation, it gets things screwed up
 	configVim
 
-	configTmux
+	configTmux > /dev/null & loadingAnimation 100
 }
 
 function installMacBrew {
@@ -107,26 +127,30 @@ function installMacXCode {
 }
 
 function installMacDeps {
-	brew install nvim tmux tmuxinator xclip fish git vim meld cowsay fortune the_silver_searcher gnupg2
+	brew install nvim \
+		tmux tmuxinator xclip fish git vim meld cowsay fortune the_silver_searcher gnupg2
 }
 
 function macOsPreparation {
 	echo "Starting macOS tools instalation:"
 
-	createRsaKey
+	createRsaKey > /dev/null & loadingAnimation 12.5
 
-	installMacXCode
-	installMacDeps
+	installMacXCode > /dev/null & loadingAnimation 25
+	installMacDeps > /dev/null & loadingAnimation 37.5
 
-	configGit
+	configGit > /dev/null & loadingAnimation 50
 
-	installMacNvim
+	installMacNvim > /dev/null & loadingAnimation 62.5
 
-	installAsdf
+	installAsdf > /dev/null & loadingAnimation 75
 
+	# Vim step cant have status animation, it gets things screwed up
 	configVim
 
-	configTmux
+	configTmux > /dev/null & loadingAnimation 100
+
+	finishMessage
 }
 
 platform='unknown'
