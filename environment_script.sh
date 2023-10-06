@@ -142,7 +142,7 @@ function installMacDeps {
 }
 
 function macOsPreparation {
-	echo "Starting macOS tools instalation:"
+	sudo echo "Starting macOS tools instalation:"
 
 	createRsaKey > /dev/null & loadingAnimation 12
 
