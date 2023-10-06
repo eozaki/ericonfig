@@ -23,7 +23,7 @@ function loadingAnimation {
 }
 
 function finishMessage {
-	printf "ALL DONE FOLKS!!!"
+	echo "ALL DONE FOLKS!!!"
 }
 
 function createRsaKey {
@@ -37,7 +37,7 @@ function linuxDeps {
 	sudo apt-get install \
 		tmux tmuxinator xclip fish git vim meld software-properties-common \
 		ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev \
-		curl cowsay fortune dconf neovim silversearcher-ag gnupg2 libreadline6-dev -y
+		curl cowsay fortune dconf-cli neovim silversearcher-ag gnupg2 libreadline6-dev -y
 }
 
 function linuxFonts {
