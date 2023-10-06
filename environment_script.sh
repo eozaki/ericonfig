@@ -78,9 +78,9 @@ function configTmux {
 }
 
 function linuxPreparation {
+	echo "Starting linux tools instalation:"
 	createRsaKey
 
-	echo "Starting linux tools instalation:"
 	linuxDeps
 	linuxFonts
 	linuxElementaryTerminal
@@ -134,7 +134,7 @@ unamestr=$(uname)
 
 if [[ "$unamestr" == 'Linux' ]]; then
 	linuxPreparation
-elif [[  "$unamestr" == 'Darwin' ]]; then
+elif [[  "$unamestr" != 'Darwin' ]]; then
 	macOsPreparation
 else
 	echo "QUE MERDA É ESSA????"
