@@ -5,11 +5,19 @@ function loadingAnimation {
 
 	spin='-\|/'
 
+	k=0
+	progressIcons=""
+	while [[ $1 -gt $k ]]
+	do
+		progressIcons=$progressIcons"#"
+		k=$k+1
+	done
+
 	i=0
 	while kill -0 $pid 2>/dev/null
 	do
 		i=$(( (i+1) %4 ))
-		echo -ne "\r${spin:$i:1} $1% of the work is done, we will be over in just a moment...\r"
+		echo -ne "\r$progressIcons ${spin:$i:1} $1%\r"
 		sleep .1
 	done
 }
@@ -136,14 +144,14 @@ function installMacDeps {
 function macOsPreparation {
 	echo "Starting macOS tools instalation:"
 
-	createRsaKey > /dev/null & loadingAnimation 12.5
+	createRsaKey > /dev/null & loadingAnimation 12
 
 	installMacXCode > /dev/null & loadingAnimation 25
-	installMacDeps > /dev/null & loadingAnimation 37.5
+	installMacDeps > /dev/null & loadingAnimation 37
 
 	configGit > /dev/null & loadingAnimation 50
 
-	installMacNvim > /dev/null & loadingAnimation 62.5
+	installMacNvim > /dev/null & loadingAnimation 62
 
 	installAsdf > /dev/null & loadingAnimation 75
 
