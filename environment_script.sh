@@ -116,6 +116,8 @@ function linuxPreparation {
 	configVim
 
 	configTmux > /dev/null & loadingAnimation 100
+
+	finishMessage
 }
 
 function installMacBrew {
