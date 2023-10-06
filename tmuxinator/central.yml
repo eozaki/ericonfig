@@ -48,5 +48,3 @@ windows:
       panes:
         - nvim
         - 
-  - server: rails s
-  - console: rails c
