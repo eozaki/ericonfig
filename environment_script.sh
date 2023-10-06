@@ -75,6 +75,7 @@ function configTmux {
 	# configuring tmux
 	rm -rf ~/.tmux.conf
 	ln -s "$PWD"/tmux.conf ~/.tmux.conf
+	ln -s "$PWD"/tmuxinator ~/.config/tmuxinator
 }
 
 function linuxPreparation {
