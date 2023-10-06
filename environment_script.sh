@@ -94,7 +94,7 @@ function configVim {
 	ln -s ~/.vim ~/.config/nvim
 	rm -rf ~/.config/nvim/init.vim
 	ln -s ~/.vimrc ~/.config/nvim/init.vim
-	nvim +VundleInstall
+	nvim +VundleInstall -c ':qa'
 }
 
 function configTmux {
@@ -105,7 +105,7 @@ function configTmux {
 }
 
 function linuxPreparation {
-	echo "Starting linux tools instalation:"
+	sudo echo "Starting linux tools instalation:"
 	
 	createRsaKey > /dev/null & loadingAnimation 10
 
