@@ -31,16 +31,20 @@ function linuxPreparation {
 function macOsPreparation {
 	sudo echo "Starting macOS tools instalation:"
 
-	createRsaKey > /dev/null & loadingAnimation 12
+	createRsaKey > /dev/null & loadingAnimation 10
 
-	installMacXCode > /dev/null & loadingAnimation 25
-	installMacDeps > /dev/null & loadingAnimation 37
+	installMacXCode > /dev/null & loadingAnimation 20
+	installMacDeps > /dev/null & loadingAnimation 30
 
-	configGit > /dev/null & loadingAnimation 50
+	configGit > /dev/null & loadingAnimation 40
 
-	installMacNvim > /dev/null & loadingAnimation 62
+	installMacNvim > /dev/null & loadingAnimation 50
 
-	installAsdf > /dev/null & loadingAnimation 75
+	installAsdf > /dev/null & loadingAnimation 60
+
+	# Shell config step cant have status animation, it gets things screwed up
+	configShell
+	configShellTheme > /dev/null & loadingAnimation 80
 
 	# Vim step cant have status animation, it gets things screwed up
 	configVim
