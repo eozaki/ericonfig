@@ -1,4 +1,7 @@
 function linuxDeps {
+	# Add fish repository for latest version of fish
+	sudo apt-add-repository ppa:fish-shell/release-3
+
 	# Getting started with updates
 	sudo apt update && sudo apt full-upgrade -y
 	sudo apt-get install \
