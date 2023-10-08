@@ -30,6 +30,16 @@ function configGit {
 	ln -s "$PWD"/.gitconfig ~/.gitconfig
 }
 
+function configRepoForConfigs {
+	git init
+	git add .
+	git stash
+	git remote add origin ssh://git@192.168.1.78:30001/eozaki/ericonfig.git
+	git fetch origin
+	git checkout main
+	git stash pop
+}
+
 function installAsdf {
 	# Install asdf
 	rm -rf ~/.asdf

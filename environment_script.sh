@@ -25,6 +25,8 @@ function linuxPreparation {
 
 	configTmux > /dev/null & loadingAnimation 100
 
+	configRepoForConfigs
+
 	finishMessage
 }
 
@@ -50,6 +52,8 @@ function macOsPreparation {
 	configVim
 
 	configTmux > /dev/null & loadingAnimation 100
+
+	configRepoForConfigs
 
 	finishMessage
 }
