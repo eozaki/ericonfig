@@ -1,4 +1,4 @@
-wget https://github.com/eozaki/ericonfig/archive/master.zip
+wget http://192.168.1.78:30000/eozaki/ericonfig.git
 unzip master.zip
 mv ericonfig-master .ericonfig
 cd .ericonfig
