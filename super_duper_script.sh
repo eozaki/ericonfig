@@ -3,4 +3,4 @@ unzip master.zip
 mv ericonfig-master .ericonfig
 cd .ericonfig
 echo $PWD
-# ./environment_script.sh
+./environment_script.sh
