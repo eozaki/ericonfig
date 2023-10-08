@@ -84,7 +84,24 @@ function configTmux {
 	ln -s "$PWD"/tmuxinator ~/.config/tmuxinator
 }
 
+function waitForKeyStroke {
+	echo -ne "$1"
+
+	# Loop until a key is pressed
+	while true; do
+		read -rsn1 key # Read a single character silently
+		if [[ -n "$key" ]]; then
+			break # Exit the loop if a key is pressed
+		fi
+	done
+}
+
 function createRsaKey {
 	[ ! -e ~/.ssh/id_rsa.pub ] && echo "Criando chave ssh"
 	[ ! -e ~/.ssh/id_rsa.pub ] && ssh-keygen
+
+	echo -e "\n\n"
+	cat ~/.ssh/id_rsa.pub
+	echo -e "\n\n\nThis is your public RSA key. Add it to your repo account before moving on.\n"
+	waitForKeyStroke "Press any key to continue..."
 }
