@@ -3,3 +3,5 @@
 [alias]
 	ci = commit -v
 	co = checkout
+[merge]
+	tool = vimdiff
