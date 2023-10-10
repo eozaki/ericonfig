@@ -3,3 +3,6 @@
 
 	# Install git plugin for omf
 	omf install https://github.com/jhillyerd/plugin-git
+
+	# Leave script running pid
+	exit
