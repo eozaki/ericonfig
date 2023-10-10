@@ -49,13 +49,15 @@ function installAsdf {
 function configShell {
 	# Making fish the default shell
 	chsh -s $(which fish)
+	
+	# Install omf
+	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
 	# Linking pre-configured config filed for fish
 	rm -rf ~/.config/fish
 	ln -s "$PWD"/fish ~/.config/fish
 	rm -rf ~/.config/omf
 	ln -s "$PWD"/omf ~/.config/omf
-	rm -rf ~/.local/share/omf
-	ln -s "$PWD"/omf ~/.local/share/omf
 }
 
 function configShellTheme {
