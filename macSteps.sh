@@ -10,3 +10,7 @@ function installMacDeps {
 	brew install nvim \
 		tmux tmuxinator xclip fish git vim meld cowsay fortune the_silver_searcher gnupg2
 }
+
+function configFishStandardShell {
+	echo $(which fish)|sudo tee -a /etc/shells
+}

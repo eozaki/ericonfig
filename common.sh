@@ -48,8 +48,7 @@ function installAsdf {
 
 function configShell {
 	# Making fish the default shell
-	chsh -s /usr/bin/fish
-
+	chsh -s $(which fish)
 	# Linking pre-configured config filed for fish
 	rm -rf ~/.config/fish
 	ln -s "$PWD"/fish ~/.config/fish

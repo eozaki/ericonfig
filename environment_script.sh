@@ -44,8 +44,9 @@ function macOsPreparation {
 	installAsdf > /dev/null & loadingAnimation 50
 
 	# Shell config step cant have status animation, it gets things screwed up
+	configFishStandardShell
 	configShell
-	configShellTheme > /dev/null & loadingAnimation 700
+	configShellTheme > /dev/null & loadingAnimation 70
 
 	# Vim step cant have status animation, it gets things screwed up
 	configVim
