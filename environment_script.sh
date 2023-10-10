@@ -40,20 +40,18 @@ function macOsPreparation {
 
 	configGit > /dev/null & loadingAnimation 40
 
-	installMacNvim > /dev/null & loadingAnimation 50
-
-	installAsdf > /dev/null & loadingAnimation 60
+	installAsdf > /dev/null & loadingAnimation 50
 
 	# Shell config step cant have status animation, it gets things screwed up
 	configShell
-	configShellTheme > /dev/null & loadingAnimation 80
+	configShellTheme > /dev/null & loadingAnimation 700
 
 	# Vim step cant have status animation, it gets things screwed up
 	configVim
 
-	configTmux > /dev/null & loadingAnimation 100
+	configTmux > /dev/null & loadingAnimation 90
 
-	configRepoForConfigs
+	configRepoForConfigs > /dev/null & loadingAnimation 100
 
 	finishMessage
 }
