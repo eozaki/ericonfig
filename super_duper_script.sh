@@ -1,4 +1,4 @@
-wget http://192.168.1.78:30000/eozaki/ericonfig/archive/main.zip
+curl -s http://192.168.1.78:30000/eozaki/ericonfig/archive/main.zip -o main.zip
 rm -rf ericonfig
 unzip main.zip
 rm main.zip
