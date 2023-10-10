@@ -7,7 +7,7 @@ source macSteps.sh
 function linuxPreparation {
 	sudo echo "Starting linux tools instalation:"
 	
-	createRsaKey > /dev/null & loadingAnimation 10
+	createRsaKey
 
 	linuxDeps > /dev/null & loadingAnimation 20
 	linuxFonts > /dev/null & loadingAnimation 30
@@ -33,7 +33,7 @@ function linuxPreparation {
 function macOsPreparation {
 	sudo echo "Starting macOS tools instalation:"
 
-	createRsaKey > /dev/null & loadingAnimation 10
+	createRsaKey
 
 	installMacXCode > /dev/null & loadingAnimation 20
 	installMacDeps > /dev/null & loadingAnimation 30
