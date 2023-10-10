@@ -35,7 +35,8 @@ function macOsPreparation {
 
 	createRsaKey
 
-	installMacXCode > /dev/null & loadingAnimation 20
+	installMacXCode > /dev/null & loadingAnimation 10
+	installMacBrew > /dev/null & loadingAnimation 20
 	installMacDeps > /dev/null & loadingAnimation 30
 
 	configGit > /dev/null & loadingAnimation 40
