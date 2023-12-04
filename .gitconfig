@@ -5,3 +5,7 @@
 	co = checkout
 [merge]
 	tool = vimdiff
+[push]
+	default = current
+[pull]
+	default = current
