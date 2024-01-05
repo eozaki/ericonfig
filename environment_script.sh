@@ -9,21 +9,21 @@ function linuxPreparation {
 	
 	createRsaKey
 
-	linuxDeps > /dev/null & loadingAnimation 20
-	linuxFonts > /dev/null & loadingAnimation 30
-	linuxElementaryTerminal > /dev/null & loadingAnimation 40
+	linuxDeps
+	linuxFonts
+	linuxElementaryTerminal
 
-	configGit > /dev/null & loadingAnimation 50
+	configGit
 
-	installAsdf > /dev/null & loadingAnimation 60
+	installAsdf
 
-	configShell > /dev/null & loadingAnimation 70
-	configShellTheme > /dev/null & loadingAnimation 80
+	configShell
+	configShellTheme
 
 	# Vim step cant have status animation, it gets things screwed up
 	configVim
 
-	configTmux > /dev/null & loadingAnimation 100
+	configTmux
 
 	configRepoForConfigs
 
@@ -35,25 +35,25 @@ function macOsPreparation {
 
 	createRsaKey
 
-	installMacXCode > /dev/null & loadingAnimation 10
-	installMacBrew > /dev/null & loadingAnimation 20
-	installMacDeps > /dev/null & loadingAnimation 30
+	installMacXCode
+	installMacBrew
+	installMacDeps
 
-	configGit > /dev/null & loadingAnimation 40
+	configGit
 
-	installAsdf > /dev/null & loadingAnimation 50
+	installAsdf
 
 	# Shell config step cant have status animation, it gets things screwed up
 	configFishStandardShell
 	configShell
-	configShellTheme > /dev/null & loadingAnimation 70
+	configShellTheme
 
 	# Vim step cant have status animation, it gets things screwed up
 	configVim
 
-	configTmux > /dev/null & loadingAnimation 90
+	configTmux
 
-	configRepoForConfigs > /dev/null & loadingAnimation 100
+	configRepoForConfigs
 
 	finishMessage
 }
