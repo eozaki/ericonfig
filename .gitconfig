@@ -10,3 +10,6 @@
 [pull]
 	default = current
 	rebase = true
+[user]
+	name = erick
+	email = erickozaki@aquaporservicos.pt
