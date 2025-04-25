@@ -4,10 +4,12 @@ function linuxDeps {
 
 	# Getting started with updates
 	sudo apt update && sudo apt full-upgrade -y
-	sudo apt-get install \
+	sudo apt install \
 		tmux tmuxinator xclip fish git vim meld software-properties-common \
 		ruby ruby-dev synapse xdotool libinput-tools libpq-dev libgmp3-dev \
 		curl cowsay fortune dconf-cli neovim silversearcher-ag gnupg2 libreadline6-dev -y
+
+	sudo gem install thor
 }
 
 function linuxFonts {
