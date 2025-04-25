@@ -4,5 +4,9 @@ end
 rvm default
  
 source ~/.asdf/asdf.fish
-source ~/.iterm2_shell_integration.fish
 
+set uname "$(uname)"
+
+if [ $uname = 'Darwin' ]
+  source ~/.iterm2_shell_integration.fish
+end
