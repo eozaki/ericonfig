@@ -4,6 +4,10 @@ source common.sh
 source linuxSteps.sh
 source macSteps.sh
 
+RED='\033[0;31m'
+DEFAULT='\033[0m' # No Color
+
+
 function linuxMenu {
 	selection=1
 	while [[ ! "$selection" == 0 ]];
@@ -35,6 +39,8 @@ function linuxMenu {
 		elif [[ "$selection" -eq 3 ]]; then
 			configGit
 		elif [[ "$selection" -eq 4 ]]; then
+			echo -e "${RED}Este passo pode depender da instalacao de dependencias de sistema ${DEFAULT}"
+			echo -e "${RED}Em caso de falha deste passo, tente instalar as dependencias de sistema antes ${DEFAULT}"
 			installAsdf
 		elif [[ "$selection" -eq 5 ]]; then
 			configShell

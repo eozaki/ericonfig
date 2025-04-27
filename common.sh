@@ -44,6 +44,11 @@ function installAsdf {
 	# Install asdf
 	rm -rf ~/.asdf
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+	asdf plugin add ruby
+	asdf install ruby 3.4.3
+	asdf global ruby 3.4.3
+
+	gem install thor tmuxinator
 }
 
 function configShell {
